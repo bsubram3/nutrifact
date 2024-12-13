@@ -114,8 +114,6 @@ with col1:
                     print(completion)
                     print('**********')
                     response = completion.choices[0].message.content
-                    print('***RAW OUTPUTS***')
-                    print(response)
 
                     # add raw message to internal messages
                     st.session_state.internal_messages.append({
@@ -138,23 +136,17 @@ with col1:
 
                     # Update session state trackers
                     if nutrifact_tracker:
-                        print('*** nutrifact_tracker RAW OUTPUTS***')
-                        print(nutrifact_tracker)
                         st.session_state.nutrifact_tracker = nutrifact_tracker
 
                     if glycemic_index_glycemic_load_tracker:
-                        print('*** glycemic_index_glycemic_load_tracker RAW OUTPUTS***')
-                        print(glycemic_index_glycemic_load_tracker)
                         st.session_state.glycemic_index_glycemic_load_tracker = glycemic_index_glycemic_load_tracker
 
                     st.rerun()
 
 with col2:
     st.header("Nutrition Fact Details")
-    nutrifact_log_container = st.container(height=260)
+    nutrifact_log_container = st.container(height=400)
     with nutrifact_log_container:
         if len(st.session_state.nutrifact_tracker) > 0:
-            print('*** nutrifact_tracker RAW OUTPUTS***')
-            print(st.session_state.nutrifact_tracker)
             st.markdown(st.session_state.nutrifact_tracker)
 
