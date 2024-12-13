@@ -42,7 +42,7 @@ logo_path = "nutri_logo.png"
 col1, col2 = st.columns([1, 10])
 
 with col1:
-    st.image(logo_path, width=100)
+    st.image(logo_path, width=60)
 
 # Display the title in the second column
 with col2:
@@ -70,7 +70,7 @@ with col1:
     st.header("Chat with Nutritionist")
 
     # Create a container for chat messages
-    chat_container = st.container(height=400)
+    chat_container = st.container(height=150)
 
     # Create a container for the input box
     input_container = st.container()
@@ -143,10 +143,12 @@ with col1:
 
                     st.rerun()
 
-with col2:
-    st.header("Nutrition Fact Details")
-    nutrifact_log_container = st.container(height=400)
-    with nutrifact_log_container:
-        if len(st.session_state.nutrifact_tracker) > 0:
-            st.markdown(st.session_state.nutrifact_tracker)
+if len(st.session_state.nutrifact_tracker) > 0:
+    with col2:
+        st.header("Nutrition Fact Details")
+        nutrifact_log_container = st.container(height=350)
+        with nutrifact_log_container:
+                print('*** nutrifact_tracker RAW OUTPUTS***')
+                print(st.session_state.nutrifact_tracker)
+                st.markdown(st.session_state.nutrifact_tracker)
 
