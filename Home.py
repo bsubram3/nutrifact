@@ -39,14 +39,7 @@ init_session_variables()
 title = "Nutrifact"
 logo_path = "nutri_logo.png"
 
-col1, col2 = st.columns([1, 10])
-
-with col1:
-    st.image(logo_path, width=60)
-
-# Display the title in the second column
-with col2:
-    st.title(title)
+st.title(title)
 
 
 # Function to extract tracker tags from response
